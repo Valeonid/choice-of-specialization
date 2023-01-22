@@ -1,0 +1,33 @@
+import array as arr
+# Задаем и выводим на печать размер исходнго массива целых чисел numbers1
+N = int(input('Введите количество элементов числового массива numbers1: '))
+print(N)
+# Задаем условие для фильтрации элементов исходного массива - формируем выборку элементов 
+# целевого массива numbers2
+maxlen = int(input('Введите максимальное количество знаков в элементах числового массива numbers2: '))
+print(maxlen)
+# Задаем массивы целых чисел без указания их значений
+numbers1 = arr.array('i')
+numbers2 = arr.array('i')
+# Вводим вручную элементы исходного массива numbers1 и выводим их на печать для контроля
+i = 0
+while i < N:
+    numbers = int(input('Введите элемент массива numbers1: '))
+    numbers1.append(numbers)
+    print(numbers1[i])
+    i += 1
+# Определяем количество знаков в элементах массива numbers1, 
+# те их них, которые меньше или равны maxlen, добавляем в массив numbers2
+
+for L in range(0, len(numbers1)):
+    number1 = numbers1[L]
+    j = 1
+    while ((number1 // 10) != 0):
+        number1 = number1 // 10
+        j = j + 1
+    if (j <= maxlen):
+        numbers2.append(numbers1[L])
+
+# Выводим на печать элементы полученного массива numbers2
+for k in range(0, len(numbers2)):
+	print(f'numbers2[{k}] = {numbers2[k]}')
